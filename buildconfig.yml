@@ -30,9 +30,6 @@ items:
       git:
         ref: master
         uri: https://github.com/jewzaam/python-simple-http-server.git
-      secrets:
-      - secret:
-          name: test
       type: Git
     strategy:
       sourceStrategy:
