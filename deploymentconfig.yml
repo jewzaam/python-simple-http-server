@@ -1,0 +1,73 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftCreate
+  generation: 8
+  labels:
+    app: simple-python-http-server
+  name: simple-python-http-server
+  namespace: test-project
+  selfLink: /apis/apps.openshift.io/v1/namespaces/test-project/deploymentconfigs/simple-python-http-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: simple-python-http-server
+    deploymentconfig: simple-python-http-server
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftCreate
+      creationTimestamp: null
+      labels:
+        app: simple-python-http-server
+        deploymentconfig: simple-python-http-server
+    spec:
+      containers:
+      - image: simple-python-http-server
+        imagePullPolicy: Always
+        name: simple-python-http-server
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp/secrets
+          name: password
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: password
+        secret:
+          defaultMode: 420
+          secretName: test
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - simple-python-http-server
+      from:
+        kind: ImageStreamTag
+        name: simple-python-http-server:latest
+        namespace: test-project
+      lastTriggeredImage: simple-python-http-server
+    type: ImageChange
+
