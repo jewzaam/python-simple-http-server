@@ -5,16 +5,14 @@ metadata:
     openshift.io/generated-by: OpenShiftCreate
   generation: 8
   labels:
-    app: simple-python-http-server
-  name: simple-python-http-server
-  namespace: test-project
-  selfLink: /apis/apps.openshift.io/v1/namespaces/test-project/deploymentconfigs/simple-python-http-server
+    app: python-simple-http-server
+  name: python-simple-http-server
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    app: simple-python-http-server
-    deploymentconfig: simple-python-http-server
+    app: python-simple-http-server
+    deploymentconfig: python-simple-http-server
   strategy:
     activeDeadlineSeconds: 21600
     resources: {}
@@ -31,13 +29,13 @@ spec:
         openshift.io/generated-by: OpenShiftCreate
       creationTimestamp: null
       labels:
-        app: simple-python-http-server
-        deploymentconfig: simple-python-http-server
+        app: python-simple-http-server
+        deploymentconfig: python-simple-http-server
     spec:
       containers:
-      - image: simple-python-http-server
+      - image: python-simple-http-server
         imagePullPolicy: Always
-        name: simple-python-http-server
+        name: python-simple-http-server
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -63,11 +61,10 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - simple-python-http-server
+      - python-simple-http-server
       from:
         kind: ImageStreamTag
-        name: simple-python-http-server:latest
-        namespace: test-project
-      lastTriggeredImage: simple-python-http-server
+        name: python-simple-http-server:latest
+      lastTriggeredImage: python-simple-http-server
     type: ImageChange
 

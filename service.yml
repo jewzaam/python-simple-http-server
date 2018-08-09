@@ -4,10 +4,8 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftCreate
   labels:
-    app: simple-python-http-server
-  name: simple-python-http-server
-  namespace: test-project
-  selfLink: /api/v1/namespaces/test-project/services/simple-python-http-server
+    app: python-simple-http-server
+  name: python-simple-http-server
 spec:
   ports:
   - name: 8080-tcp
@@ -15,7 +13,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: simple-python-http-server
-    deploymentconfig: simple-python-http-server
+    app: python-simple-http-server
+    deploymentconfig: python-simple-http-server
   sessionAffinity: None
   type: ClusterIP

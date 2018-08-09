@@ -5,7 +5,7 @@ items:
   metadata:
     creationTimestamp: null
     generation: 1
-    name: simple-python-http-server
+    name: python-simple-http-server
   spec:
     lookupPolicy:
       local: false
@@ -14,15 +14,15 @@ items:
   metadata:
     creationTimestamp: null
     labels:
-      app: simple-python-http-server
-    name: simple-python-http-server
+      app: python-simple-http-server
+    name: python-simple-http-server
   spec:
     failedBuildsHistoryLimit: 5
     nodeSelector: null
     output:
       to:
         kind: ImageStreamTag
-        name: simple-python-http-server:latest
+        name: python-simple-http-server:latest
     postCommit: {}
     resources: {}
     runPolicy: Serial

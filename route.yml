@@ -4,16 +4,13 @@ metadata:
   annotations:
     openshift.io/host.generated: "true"
   labels:
-    app: simple-python-http-server
-  name: simple-python-http-server
-  namespace: test-project
-  resourceVersion: "148952"
-  selfLink: /apis/route.openshift.io/v1/namespaces/test-project/routes/simple-python-http-server
+    app: python-simple-http-server
+  name: python-simple-http-server
 spec:
   port:
     targetPort: 8080-tcp
   to:
     kind: Service
-    name: simple-python-http-server
+    name: python-simple-http-server
     weight: 100
   wildcardPolicy: None
