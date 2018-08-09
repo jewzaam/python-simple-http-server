@@ -10,8 +10,9 @@ oc login -u developer -p whatever
 oc new-project test-project
 oc create secret generic test --from-literal=password=nothingreal
 oc create -f buildconfig.yml
-sleep 600
+sleep 60
 oc new-app simple-python-http-server
+oc expose svc/simple-python-http-server
 ```
 
 # start new build
