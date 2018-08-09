@@ -11,7 +11,7 @@ print ("serving at port " + str(PORT))
 
 # test that we can load the secret
 try:
-    stream = open("password", "r")
+    stream = open("/tmp/secrets/password", "r")
     print ("password is " + stream.read())
 except:
     print ("couldn't load password")

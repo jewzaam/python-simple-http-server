@@ -13,6 +13,7 @@ oc create -f buildconfig.yml
 sleep 60
 oc new-app simple-python-http-server
 oc expose svc/simple-python-http-server
+oc volume deploymentconfigs/simple-python-http-server --add --name=password -m /tmp/secrets -t secret --secret-name=test
 ```
 
 # start new build
