@@ -7,6 +7,22 @@ Just a simple server to test out openshift python s2i.
 minishift start
 eval $(minishift oc-env)
 oc login -u developer -p whatever
+```
+
+# test in openshift
+You'll need to login.  Login with token can be retrieved from the console.
+
+```
+oc login https://<hostname>:<port> --token=<token>
+```
+
+# deploy all the things
+
+```
+# start minishift and log in
+minishift start
+eval $(minishift oc-env)
+oc login -u developer -p whatever
 
 # create stuff
 oc new-project test-project

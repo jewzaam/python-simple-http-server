@@ -32,6 +32,7 @@ items:
         uri: https://github.com/jewzaam/python-simple-http-server.git
       type: Git
     strategy:
+      type: Source
       sourceStrategy:
         env:
         - name: GIT_SSL_NO_VERIFY
@@ -40,11 +41,12 @@ items:
           kind: ImageStreamTag
           name: python:2.7
           namespace: openshift
-      type: Source
-      type: ConfigChange
     successfulBuildsHistoryLimit: 5
     triggers:
     - type: ConfigChange
+    - type: Generic
+      generic:
+        secret: "jewzaam-simple"
 kind: List
 metadata: {}
 
